@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="container">
       <ImageProfile
-        imageSrc="/src/assets/images/my-avatar.jpeg"
+        imageSrc="images/my-avatar.jpeg"
         name="Pierre Mendes Salatiel"
         role="Fullstack Developer"
       />
