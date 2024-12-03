@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useLinksStore } from './stores/linksStore.ts';
+import { useLinksStore } from './stores/linksStore';
 import ImageProfile from './components/ImageProfile.vue';
 import LinkContainer from './components/LinkContainer.vue';
 import AppFooter from './components/AppFooter.vue';

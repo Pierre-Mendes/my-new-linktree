@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "types": [
+      "vite/client"
+    ],
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -9,7 +12,7 @@
       "esnext"
     ],
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": [
     "src/**/*.ts",
