@@ -1,8 +1,9 @@
 <template>
   <div class="app-container">
-    <div class="container">
+    <div v-if="loading" class="loading">Carregando links...</div>
+    <div v-else class="container">
       <ImageProfile
-        imageSrc="images/my-avatar.jpeg"
+        imageSrc="/images/my-avatar.jpeg"
         name="Pierre Mendes Salatiel"
         role="Fullstack Developer"
       />
@@ -35,8 +36,16 @@ onMounted(async () => {
 });
 
 const links = linksStore.links;
+const loading = linksStore.loading;
 </script>
 
 <style>
 @import './assets/styles/style.css';
+
+.loading {
+  font-size: 1.5rem;
+  color: #555;
+  text-align: center;
+  margin-top: 50px;
+}
 </style>
