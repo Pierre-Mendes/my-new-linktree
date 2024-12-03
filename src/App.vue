@@ -21,33 +21,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
+import { useLinksStore } from './stores/linksStore.ts';
 import ImageProfile from './components/ImageProfile.vue';
 import LinkContainer from './components/LinkContainer.vue';
 import AppFooter from './components/AppFooter.vue';
 
-// Ref para armazenar os links
-const links = ref([]);
-
-// URL do Gist com os dados JSON
+const linksStore = useLinksStore();
 const gistUrl = import.meta.env.VITE_GIST_URL;
 
-// Função para buscar dados do Gist
-const fetchLinks = async () => {
-  try {
-    const response = await fetch(gistUrl);
-    console.log(response);
-    const data = await response.json();
-    links.value = data; // Armazena os dados na ref 'links'
-  } catch (error) {
-    console.error('Erro ao carregar os links:', error);
-  }
-};
-
-// Chamando a função ao montar o componente
-onMounted(() => {
-  fetchLinks();
+onMounted(async () => {
+  await linksStore.fetchLinks(gistUrl);
 });
+
+const links = linksStore.links;
 </script>
 
 <style>
